@@ -4,11 +4,11 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'devburger', 'public')));
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, 'views', 'index.html'));
+    res.status(200).sendFile(path.join(__dirname, 'devburger', 'views', 'index.html'));
 });
 
 app.get('/sugestao', (req, res) => {
@@ -41,7 +41,7 @@ app.get('/sugestao', (req, res) => {
 });
 
 app.get('/contato', (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, 'views', 'contato.html'));
+    res.status(200).sendFile(path.join(__dirname, 'devburger', 'views', 'contato.html'));
 });
 
 app.post('/contato', (req, res) => {
@@ -76,11 +76,11 @@ app.post('/contato', (req, res) => {
 });
 
 app.get('/api/lanches', (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, 'public', 'data', 'lanches.json'));
+    res.status(200).sendFile(path.join(__dirname, 'devburger', 'public', 'data', 'lanches.json'));
 });
 
 app.use((req, res, next) => {
-    res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
+    res.status(404).sendFile(path.join(__dirname, 'devburger', 'public', '404.html'));
 });
 
 app.listen(PORT, () => {
